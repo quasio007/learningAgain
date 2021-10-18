@@ -3,13 +3,21 @@ package learning.basics.test;
 import java.io.IOException;
 
 public class Test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         C c = new C();
         c.m5();
         C.m5();
         I1.m5();
         I2.m5();
         I1 i1 = new C();
+
+        C c2 = (C) c.clone();
+        System.out.println(c);
+        System.out.println(c2);
+
+        C c3 = c;
+        System.out.println(c3);
+        System.out.println("End");
     }
 }
 
@@ -60,7 +68,7 @@ interface I2 {
 }
 
 
-class C extends Ac implements I1, I2 {
+class C extends Ac implements I1, I2, Cloneable {
 
     C() {
 
@@ -96,6 +104,10 @@ class C extends Ac implements I1, I2 {
 
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
     public static void m5() {
         System.out.println("From class c");

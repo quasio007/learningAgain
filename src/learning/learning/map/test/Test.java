@@ -1,4 +1,4 @@
-package map.test;
+package learning.map.test;
 
 import java.util.HashMap;
 import java.util.Map;
